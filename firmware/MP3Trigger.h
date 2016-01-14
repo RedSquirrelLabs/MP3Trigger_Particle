@@ -16,7 +16,7 @@ Serial.begin( MP3Trigger::serialRate() )
 #ifndef MP3_TRIGGER_H
 #define MP3_TRIGGER_H
 
-#include <Arduino.h>
+//#include <Arduino.h>
 
 class MP3Trigger{
 public:
@@ -33,17 +33,17 @@ public:
 	void setVolume(byte level);	//0-255
 	void quietMode(boolean onoff, void (*function)(int));	//1 for on, 0 for off, callback function
 	void statusRequest();
-	
+
 	void setLooping(bool doLoop, byte track);		//turn looping on/off
 	void setLoopingTrack(byte track);	//select the track to loop
 	void update();						//make sure to call this during your loop()
-	
+
 	static long serialRate(){ return 38400; }
 private:
 	void handleTrackEnd();
 	void handleTriggerInput();
 	void loop();
-	
+
 	bool mDoLoop;
 	byte mLoopTrack;
 	bool mPlaying;
