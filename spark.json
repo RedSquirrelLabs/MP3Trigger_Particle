@@ -1,0 +1,9 @@
+
+{
+  "name": "MP3Trigger",
+  "author": "Tom <admin@redsquirrellabs.com",
+  "license": "MIT",
+  "version": "0.0.1",
+  "description": "Port of Arduino mp3trigger.h and libraries to particle, originaly from David Wicks",
+  "dependencies":{}
+}
