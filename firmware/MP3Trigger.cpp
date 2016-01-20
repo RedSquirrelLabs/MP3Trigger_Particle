@@ -5,6 +5,7 @@ MP3Trigger.cpp
 */
 
 #include "MP3Trigger.h"
+#include "application.h"
 
 MP3Trigger::MP3Trigger()
 {
@@ -23,14 +24,14 @@ void MP3Trigger::setup(Stream *serial)
 	s = serial;
 }
 
-// 
+//
 // Looping functions
-// 
+//
 void MP3Trigger::setLooping(bool doLoop, byte track)
 {
 	mDoLoop = doLoop;
 	mLoopTrack = track;
-	
+
 	if(!mPlaying && mDoLoop)
 	{
 		loop();
@@ -112,16 +113,16 @@ void MP3Trigger::loop()
 void MP3Trigger::stop()
 {
 	mDoLoop = false;
-	
+
 	if(mPlaying)
 	{
 		play();
 	}
 }
 
-// 
+//
 // Single-byte built-in functions
-// 
+//
 
 void MP3Trigger::play()
 {
@@ -141,7 +142,7 @@ void MP3Trigger::reverse()
 
 //
 // Built-in two-byte functions
-// 
+//
 
 void MP3Trigger::trigger(byte track)
 {
@@ -172,9 +173,9 @@ void MP3Trigger::quietMode(boolean onoff, void (*callback)(int))
 	quickModeCallback = callback;
 }
 
-// 
+//
 // Response functions
-// 
+//
 
 void MP3Trigger::statusRequest()
 {
@@ -189,7 +190,7 @@ void MP3Trigger::statusRequest()
 	// {
 	// 	// read the incoming byte:
 	// 	int incomingByte = Serial.read();
-	// 
+	//
 	// 	// say what you got:
 	// 	Serial.print("I received: ");
 	// 	Serial.println(incomingByte, DEC);
